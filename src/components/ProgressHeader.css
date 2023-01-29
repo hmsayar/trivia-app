@@ -1,0 +1,14 @@
+.progress-header{
+    position: fixed;
+    height: 10px;
+    top:0;
+    left: 0;
+    background-color: darkgoldenrod;
+    border-radius: 5px;
+    display:flex;
+    justify-content:flex-start
+  }
+
+  #header-record{
+    min-width: 140px;
+  }

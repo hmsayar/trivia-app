@@ -1,0 +1,50 @@
+form{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    padding:3em;
+    border-radius: 30px;
+    background-color:#1f1d1d;
+    box-shadow: 0 2px 30px rgba(0, 0, 0, 0.5);
+
+}
+
+select, #number-input{
+    padding: 10px;
+    border-radius: 5px;
+    border:2px solid ;
+    color:darkgoldenrod;
+    background-color: transparent;
+    box-shadow: 0 2px 1px rgba(184, 134,11, 0.5);
+}
+
+.select-items{
+    background-color: #242424;
+}
+
+
+::placeholder{
+    color:darkgoldenrod;
+}
+
+#number-input:focus, select:focus{
+    outline: none;
+}
+
+
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+
+  #start-btn{
+    margin-top:5rem;
+    padding:1em;
+    border-radius: 10px;
+    border:none;
+    background-color: darkgoldenrod;
+    color:#1f1d1d;
+  }
+
+  #start-btn:hover{
+    box-shadow: 0 2px 15px rgba(184, 134,11, 0.5);
+  }
