@@ -10,7 +10,7 @@ export default function ProgressHeader({style,record}: Props){
     return(
         <div style={{right:`${style}`}} className='progress-header' >
             <p id="header-record"> 
-            Best Record  %{record}
+            Best Score  %{record}
            </p>
         </div>
     )
