@@ -35,18 +35,22 @@
 }
 .selected--answer{
     background-color: darkgoldenrod;
+    transition: 800ms;
 }
 
 .selected--answer>p{
     color:black;
+    transition: 800ms;
 }
 
 .true--style{
     background-color: aquamarine;
+    transition: 800ms;
 }
 
 .false--style{
     background-color: rgb(255, 138, 138);
+    transition: 800ms;
 }
 
 h4,p{
