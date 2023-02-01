@@ -7,6 +7,7 @@ import ProgressHeader from './components/ProgressHeader';
 import Timer from './components/Timer';
 import useLocalStorage from './hooks/useLocalStorage';
 import NewRecord from './components/NewRecord';
+import { Fade } from 'react-awesome-reveal';
 
 
 interface Q {
@@ -56,21 +57,21 @@ function App() {
     })
   }, [questions])
 
-  useEffect(()=>{
-    if(result.resultStyle){
-      if(Math.floor((result.trueNumber/questions.length)*100) > record){
-        setRecord(()=> (Math.floor((result.trueNumber/questions.length)*100)))
+  useEffect(() => {
+    if (result.resultStyle) {
+      if (Math.floor((result.trueNumber / questions.length) * 100) > record) {
+        setRecord(() => (Math.floor((result.trueNumber / questions.length) * 100)))
         setNewRecord(true)
       }
     }
-  },[result])
+  }, [result])
 
 
 
   function handleClick(queNum: string, queType: string, difficulty: string) {
-      fetch(`https://opentdb.com/api.php?amount=${queNum}${queType}${difficulty}`)
-        .then(res => res.json())
-        .then(data => processData(data.results))
+    fetch(`https://opentdb.com/api.php?amount=${queNum}${queType}${difficulty}`)
+      .then(res => res.json())
+      .then(data => processData(data.results))
   }
 
   function processData(data: Array<Q>) {
@@ -138,22 +139,26 @@ function App() {
 
   }
 
-  function clearResult(){
+  function clearResult() {
     setResult({ resultStyle: false, trueNumber: 0 })
   }
 
-  function clearRecord(){
+  function clearRecord() {
     setNewRecord(false)
   }
 
 
 
-  const queElements = questions.map(que => <Question triviaResult={result} toggleSelect={toggleSelect} questionProps={que} />)
+  const queElements = questions.map(que => (
+    <Fade cascade damping={0.1}>
+      <Question triviaResult={result} toggleSelect={toggleSelect} questionProps={que} />
+    </Fade>
+  ))
 
   return (
     <div className="App">
       {
-        questions.length>0 ?
+        questions.length > 0 ?
           <>
             <ProgressHeader record={record} style={headerStyle} />
             {!result.resultStyle && <Timer handleResult={handleResult} queCount={questions.length} />}
@@ -164,7 +169,7 @@ function App() {
               result.resultStyle ?
                 <div className='result-container'>
 
-                  <h4 className="score">You scored {result.trueNumber}/{questions.length} correct answer</h4>
+                  <h4 className="score">{result.trueNumber}/{questions.length} correct answer</h4>
 
                   <button
                     className="result--button"
