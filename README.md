@@ -26,6 +26,8 @@ Try the live demo here: [Live Demo](https://trivia-app.onrender.com)
 
 - React.js
 - TypeScript
+- Vite
+
 
 
 

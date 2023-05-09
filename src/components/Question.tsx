@@ -12,8 +12,6 @@ interface Props {
 
 export default function Question({ toggleSelect, questionProps, triviaResult }: Props) {
 
-
-
     const displayAnswer = questionProps.answers.map(item => {
 
         let answerStyle:string = ""
